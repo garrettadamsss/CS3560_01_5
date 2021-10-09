@@ -40,15 +40,14 @@ public class Main{
         return printInventoryReport;
 
     }
-    //Method accepts 
-    public static boolean create_Special(Boolean createSpecial){
-        boolean manager = true;
-        boolean employee = false;
+     /*method validates that manager = true; when called and assigns a start date and end date.
+    Also, a short description must be added to describe the special.*/
+    public static boolean create_Special(Boolean IsManager){
         //if user is validated as manager then create_Special can be implemented.
-        if (manager){
+        if (isManager == true){
         return true;
         }
-        else if (employee){
+        else if(isManager) == false){
             return false;
         }
 
