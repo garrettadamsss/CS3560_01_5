@@ -10,13 +10,13 @@ public class Inventory{
 
     }
     //method accepts a productID and displays the quantity of the specified product.
-    public static int view_Inventory(int viewInventory){
+    public static int view_Inventory(int productID){
 
         return viewInventory;
 
     }
     //When lowInventoryStatus is true, a report is printed alerting low inventory of specified item.
-    public static int print_Inventory_Report(int printInventoryReport){
+    public static int print_Inventory_Report(boolean lowInventoryStatus){
 
         return printInventoryReport;
 

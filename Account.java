@@ -4,7 +4,7 @@ abstract class Account{
     String password;
     int ID; 
     Boolean isManager; 
-    //constructor that will be called by stocker and Manager instances
+    //constructor that will be called by stocker and Manager instances.
     public Account(String username, String password, int ID, Boolean isManager){
         this.username = username;
         this.password = password;
