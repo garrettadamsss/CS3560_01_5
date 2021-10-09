@@ -12,7 +12,7 @@ abstract class Account{
         this.isManager = isManager; 
     }
     //Method accepts username and passcode and compares these values with username and passcode in the database.
-    public static boolean system_Log_In(Boolean systemLogIn){
+    public static boolean system_Log_In(String username, String passcode){
         boolean validEmployee = true;
         //returns true if username and passcode match. 
         if (validEmployee){
