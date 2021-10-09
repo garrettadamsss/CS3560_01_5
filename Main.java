@@ -12,37 +12,39 @@
 
 
 public class Main{
+
     public static void main(String args[]){
         
     }
 
-    public static int view_Product_Information(int productInfo){
+    //method accepts a product ID and returns productInfo data.
+    public static int view_Product_Information(int productID){
         
         return productInfo;
     }
-
+    //method accepts a positive or negative number and changes the product quantity.
     public static int change_Inventory(int changeInventory){
 
         return changeInventory;
 
     }
-
+    //method accepts a productID and displays the quantity of the specified product.
     public static int view_Inventory(int viewInventory){
 
         return viewInventory;
 
     }
-
+    //When lowInventoryStatus is true, a report is printed alerting low inventory of specified item.
     public static int print_Inventory_Report(int printInventoryReport){
 
         return printInventoryReport;
 
     }
-
+    //Method accepts 
     public static boolean create_Special(Boolean createSpecial){
         boolean manager = true;
         boolean employee = false;
-
+        //if user is validated as manager then create_Special can be implemented.
         if (manager){
         return true;
         }
@@ -56,10 +58,10 @@ public class Main{
 
         return createSpecial;
     }
-
+    //Method accepts username and passcode and compares these values with username and passcode in the database.
     public static boolean system_Log_In(Boolean systemLogIn){
         boolean validEmployee = true;
-
+        //returns true if username and passcode match. 
         if (validEmployee){
             return true;
         } else {
