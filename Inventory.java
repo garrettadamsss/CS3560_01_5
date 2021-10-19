@@ -2,6 +2,7 @@ public class Inventory{
     boolean lowInventoryStatus;
     int productId;
     int quantity;
+    double size; 
 
     //method accepts a positive or negative number and changes the product quantity.
     public static int change_Inventory(int changeInventory){
