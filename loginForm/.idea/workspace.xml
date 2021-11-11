@@ -9,30 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f40ad30b-1416-47f4-8865-edbc08cb0f65" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/loginForm_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loginForm.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/loginForm_jar/loginForm.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/sample.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/App.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/HelloApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/HelloController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/sample.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="f40ad30b-1416-47f4-8865-edbc08cb0f65" name="Changes" comment="login form update 1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,12 +18,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="20kw91peqOm3yEOnpu4pmDa3iu7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -57,7 +38,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/.jdks/javafx-sdk-17.0.1/bin/vcruntime140_1.dll" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Documents/Cal Poly/Fall 2021/CS 3560/CS3560_01_5/loginForm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14648438" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -97,7 +78,40 @@
       <option name="presentableId" value="Default" />
       <updated>1636601740297</updated>
     </task>
+    <task id="LOCAL-00001" summary="login form">
+      <created>1636611421244</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636611421244</updated>
+    </task>
+    <task id="LOCAL-00002" summary="login form update 1">
+      <created>1636617948392</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636617948392</updated>
+    </task>
+    <task id="LOCAL-00003" summary="login form update 1">
+      <created>1636617981853</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636617981853</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -109,5 +123,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="login form" />
+    <MESSAGE value="login form update 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="login form update 1" />
   </component>
 </project>
