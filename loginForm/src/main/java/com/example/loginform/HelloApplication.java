@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * This is the main file where the application is started and the primary stage for the GUI
+ * is initialized.
+ */
 public class HelloApplication extends Application {
     private static Stage stg;
 
