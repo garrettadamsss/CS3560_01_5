@@ -76,6 +76,7 @@ public class Inventory {
             while (queryOutput.next()) {
                 quantityLabel.setText(queryOutput.getString("quantity"));
             }
+            changeQuantity.clear();
 
         } catch (SQLException e) {
             e.printStackTrace();
