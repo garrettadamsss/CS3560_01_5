@@ -1,4 +1,4 @@
-# Grocery Store Inventory Susbsytem
+# Grocery Store Inventory System
 
 ![image](https://user-images.githubusercontent.com/85195875/141662664-53593f25-814a-4eac-a091-1774a9e69044.png)
 
