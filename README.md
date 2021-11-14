@@ -1,4 +1,4 @@
-# CS3560_01_5
+# Grocery Store Inventory Susbsytem
 
 ![image](https://user-images.githubusercontent.com/85195875/141662664-53593f25-814a-4eac-a091-1774a9e69044.png)
 
