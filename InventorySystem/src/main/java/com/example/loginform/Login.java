@@ -30,11 +30,18 @@ public class Login {
     @FXML
     private PasswordField password;
 
+    @FXML
+    public void onEnter(ActionEvent ae)  {
+        password.requestFocus();
+    }
 
+    @FXML
+    public void onEnter1(ActionEvent ae) throws IOException {
+        userLogin(ae);
+    }
 
     public void userLogin(ActionEvent event) throws IOException {
         checkLogin();
-
     }
 
     private void checkLogin() throws IOException {
