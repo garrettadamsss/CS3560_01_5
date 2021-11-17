@@ -22,11 +22,12 @@ public class InventoryDataAccessor {
         String url = "jdbc:mysql://localhost:3306/" + databaseName;
 
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             databaseLink = DriverManager.getConnection(url, databaseUser, databasePassword);
 
 
         } catch (Exception e) {
-            System.out.println("Could not retrieve database records.");
+            System.out.println("Oops error");
             e.printStackTrace();
         }
 
