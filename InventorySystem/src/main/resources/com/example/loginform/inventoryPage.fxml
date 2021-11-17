@@ -17,14 +17,16 @@
                </font>
             </Label>
             <TextField fx:id="itemUPC" layoutX="250.0" layoutY="45.0" onAction="#onEnter" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
-            <Label layoutX="125.0" layoutY="126.0" prefHeight="22.0" prefWidth="100.0" text="Inventory Status:" />
-            <Label layoutX="166.0" layoutY="170.0" prefHeight="12.0" prefWidth="80.0" text="Quantity:" />
-            <Label fx:id="inventoryStatusLabel" layoutX="260.0" layoutY="128.0" prefHeight="18.0" prefWidth="81.0" />
-            <Label fx:id="quantityLabel" layoutX="260.0" layoutY="170.0" prefHeight="18.0" prefWidth="81.0" />
+            <Label layoutX="137.0" layoutY="103.0" prefHeight="22.0" prefWidth="76.0" text="Prouct Name:" />
+            <Label layoutX="120.0" layoutY="144.0" prefHeight="22.0" prefWidth="100.0" text="Inventory Status:" />
+            <Label layoutX="161.0" layoutY="181.0" prefHeight="12.0" prefWidth="80.0" text="Quantity:" />
+            <Label fx:id="inventoryStatusLabel" layoutX="226.0" layoutY="146.0" prefHeight="18.0" prefWidth="81.0" />
+            <Label fx:id="quantityLabel" layoutX="226.0" layoutY="181.0" prefHeight="18.0" prefWidth="81.0" />
             <TextField fx:id="changeQuantity" layoutX="250.0" layoutY="214.0" onAction="#onEnter1" promptText="Item Quantity" />
-            <Label layoutX="125.0" layoutY="216.0" prefHeight="22.0" prefWidth="100.0" text="Modify Quantity:" />
+            <Label layoutX="120.0" layoutY="216.0" prefHeight="22.0" prefWidth="100.0" text="Modify Quantity:" />
             <Button fx:id="menuRetrun" layoutX="244.0" layoutY="312.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="30.0" prefWidth="112.0" text="Return to Menu" />
             <Label fx:id="itemNotFoundlabel" layoutX="273.0" layoutY="86.0" prefHeight="14.0" prefWidth="104.0" textFill="#ee0202" />
+            <Label fx:id="productNameLabel" layoutX="226.0" layoutY="105.0" prefHeight="19.0" prefWidth="153.0" />
          </children>
       </AnchorPane>
    </center>

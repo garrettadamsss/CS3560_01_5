@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.sql.*;
 
 /**
  * This class is used to login to the inventory app.
@@ -46,7 +47,41 @@ public class Login {
 
     private void checkLogin() throws IOException {
         GroceryApp m = new GroceryApp();
-        if(username.getText().equals("stocker") && password.getText().equals("123")) {
+
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+
+        String employeeUsername = username.getText();
+        String employeePassword = password.getText();
+
+        try {
+            PreparedStatement preparedStatement = connectDB.prepareStatement("SELECT * FROM grocery_store_inventory_subsystem.employee WHERE username=?");
+            preparedStatement.setString(1, employeeUsername);
+
+
+            Statement statement = connectDB.createStatement();
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.isBeforeFirst()) {
+                wrongLogin.setText("User not found");
+
+            } else {
+                while (resultSet.next()) {
+                    String retrievedPassword = resultSet.getString("password");
+                    if (retrievedPassword.equals(employeePassword)) {
+                        m.changeScene("mainMenu.fxml");
+                    }
+                    else {
+                        wrongLogin.setText("Password is incorrect");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        /*if(username.getText().equals("stocker") && password.getText().equals("123")) {
             wrongLogin.setText("Success!");
 
             m.changeScene("mainMenu.fxml");
@@ -59,7 +94,7 @@ public class Login {
 
         else {
             wrongLogin.setText("Wrong username or password!");
-        }
+        }*/
     }
 
 
