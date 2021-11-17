@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.sql.*;
-
 import java.io.IOException;
 
 /**
@@ -23,12 +22,28 @@ public class Inventory {
     @FXML
     private Label quantityLabel;
     @FXML
+    private Label itemNotFoundlabel;
+    @FXML
     private TextField itemUPC;
     @FXML
     private TextField changeQuantity;
 
+    @FXML
+    public void onEnter(ActionEvent event) {
 
-    public void connectButton(ActionEvent event) {
+        if (connectButton(event))
+            changeQuantity.requestFocus();
+    }
+
+    @FXML
+    public void onEnter1(ActionEvent event) {
+        updateQuantity(event);
+        itemUPC.requestFocus();
+    }
+
+    public boolean connectButton(ActionEvent event) {
+
+        boolean itemExists = true;
 
         String upc = itemUPC.getText();
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
@@ -40,17 +55,19 @@ public class Inventory {
             Statement statement = connectDB.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
-
-            while (queryOutput.next()) {
-
+            if (queryOutput.next()) {
                 inventoryStatusLabel.setText(queryOutput.getString("inventory_status"));
                 quantityLabel.setText(queryOutput.getString("quantity"));
-
+                itemNotFoundlabel.setText("");
+                itemExists = true;
+            } else if (!(queryOutput.next())) {
+                itemNotFoundlabel.setText("Item Not Found");
+                itemExists = false;
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return itemExists;
     }
 
     public void updateQuantity(ActionEvent event) {
@@ -68,7 +85,6 @@ public class Inventory {
             updatedStatement.setString(1, newQuantity);
             updatedStatement.executeUpdate();
 
-
             String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
             Statement statement = connectDB.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
@@ -76,13 +92,15 @@ public class Inventory {
             while (queryOutput.next()) {
                 quantityLabel.setText(queryOutput.getString("quantity"));
             }
+            inventoryStatusLabel.setText("");
+
+            changeQuantity.clear();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
-
 
     public void returnToMenu(ActionEvent event) throws IOException {
         GroceryApp m = new GroceryApp();

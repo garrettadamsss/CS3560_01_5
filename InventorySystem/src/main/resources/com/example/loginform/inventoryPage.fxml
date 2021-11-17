@@ -8,25 +8,24 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginform.Inventory">
-   <top>
+   <center>
       <AnchorPane prefHeight="398.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="connectButton" layoutX="431.0" layoutY="42.0" mnemonicParsing="false" onAction="#connectButton" prefHeight="27.0" prefWidth="115.0" text="Search UPC" />
-            <TextField fx:id="itemUPC" layoutX="233.0" layoutY="37.0" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
-            <Label layoutX="86.0" layoutY="93.0" prefHeight="22.0" prefWidth="100.0" text="Inventory Status:" />
-            <Label layoutX="126.0" layoutY="130.0" prefHeight="12.0" prefWidth="80.0" text="Quantity:" />
-            <Button fx:id="menuRetrun" layoutX="244.0" layoutY="295.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="30.0" prefWidth="112.0" text="Return to Menu" />
-            <Label layoutX="166.0" layoutY="38.0" prefHeight="32.0" prefWidth="51.0" text="UPC:">
+            <Label layoutX="175.0" layoutY="46.0" prefHeight="32.0" prefWidth="51.0" text="UPC:">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="inventoryStatusLabel" layoutX="206.0" layoutY="95.0" prefHeight="18.0" prefWidth="81.0" />
-            <Label fx:id="quantityLabel" layoutX="206.0" layoutY="130.0" prefHeight="18.0" prefWidth="81.0" />
-            <TextField fx:id="changeQuantity" layoutX="192.0" layoutY="157.0" promptText="Item Quantity" />
-            <Label layoutX="100.0" layoutY="159.0" prefHeight="22.0" prefWidth="100.0" text="Add Quantity:" />
-            <Button fx:id="updateQuantityButton" layoutX="206.0" layoutY="192.0" mnemonicParsing="false" onAction="#updateQuantity" prefHeight="27.0" prefWidth="115.0" text="Update Quantity" />
+            <TextField fx:id="itemUPC" layoutX="250.0" layoutY="45.0" onAction="#onEnter" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
+            <Label layoutX="125.0" layoutY="126.0" prefHeight="22.0" prefWidth="100.0" text="Inventory Status:" />
+            <Label layoutX="166.0" layoutY="170.0" prefHeight="12.0" prefWidth="80.0" text="Quantity:" />
+            <Label fx:id="inventoryStatusLabel" layoutX="260.0" layoutY="128.0" prefHeight="18.0" prefWidth="81.0" />
+            <Label fx:id="quantityLabel" layoutX="260.0" layoutY="170.0" prefHeight="18.0" prefWidth="81.0" />
+            <TextField fx:id="changeQuantity" layoutX="250.0" layoutY="214.0" onAction="#onEnter1" promptText="Item Quantity" />
+            <Label layoutX="125.0" layoutY="216.0" prefHeight="22.0" prefWidth="100.0" text="Modify Quantity:" />
+            <Button fx:id="menuRetrun" layoutX="244.0" layoutY="312.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="30.0" prefWidth="112.0" text="Return to Menu" />
+            <Label fx:id="itemNotFoundlabel" layoutX="273.0" layoutY="86.0" prefHeight="14.0" prefWidth="104.0" textFill="#ee0202" />
          </children>
       </AnchorPane>
-   </top>
+   </center>
 </BorderPane>
