@@ -24,6 +24,8 @@ public class Inventory {
     @FXML
     private Label itemNotFoundlabel;
     @FXML
+    private Label productNameLabel;
+    @FXML
     private TextField itemUPC;
     @FXML
     private TextField changeQuantity;
@@ -50,12 +52,19 @@ public class Inventory {
         Connection connectDB = connectNow.getConnection();
 
         String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
+        String connectQuery2 = "SELECT * FROM grocery_store_inventory_subsystem.product WHERE upc =" + upc;
         try {
 
             Statement statement = connectDB.createStatement();
+            Statement statement1 = connectDB.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
             if (queryOutput.next()) {
+                ResultSet queryOutput1 = statement1.executeQuery(connectQuery2);
+
+                if (queryOutput1.next())
+                    productNameLabel.setText(queryOutput1.getString("name"));
+
                 inventoryStatusLabel.setText(queryOutput.getString("inventory_status"));
                 quantityLabel.setText(queryOutput.getString("quantity"));
                 itemNotFoundlabel.setText("");
@@ -75,14 +84,36 @@ public class Inventory {
         String upc = itemUPC.getText();
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
+        String stockStatus= "";
+
 
         try {
-            String newQuantity = changeQuantity.getText();
-            PreparedStatement updatedStatement = connectDB.prepareStatement("update grocery_store_inventory_subsystem.inventory"
-                    + " set quantity=quantity+?"
-                    + "where upc =" + upc);
+            int modifyQuantity = Integer.valueOf(changeQuantity.getText());
+            int currentInventory = currentInventory(event);
+            PreparedStatement updatedStatement = null;
 
-            updatedStatement.setString(1, newQuantity);
+            if((currentInventory + modifyQuantity < 0)) {
+                updatedStatement = connectDB.prepareStatement("update grocery_store_inventory_subsystem.inventory"
+                        + " set quantity=?, inventory_status=?"
+                        + "where upc =" + upc);
+                String zero = "0";
+                updatedStatement.setString(1, zero);
+            }
+            else {
+                updatedStatement = connectDB.prepareStatement("update grocery_store_inventory_subsystem.inventory"
+                        + " set quantity=quantity+?, inventory_status=?"
+                        + "where upc =" + upc);
+
+                updatedStatement.setString(1, String.valueOf(modifyQuantity));
+            }
+
+            if ( (currentInventory + modifyQuantity) > 0) {
+                stockStatus = "in stock";
+            }
+            else
+                stockStatus = "out of stock";
+
+            updatedStatement.setString(2, stockStatus);
             updatedStatement.executeUpdate();
 
             String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
@@ -90,16 +121,37 @@ public class Inventory {
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
             while (queryOutput.next()) {
-                quantityLabel.setText(queryOutput.getString("quantity"));
-            }
-            inventoryStatusLabel.setText("");
 
+                quantityLabel.setText(queryOutput.getString("quantity"));
+                inventoryStatusLabel.setText(queryOutput.getString("inventory_status"));
+            }
             changeQuantity.clear();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+    }
+    public int currentInventory(ActionEvent event) {
+
+        int itemQuantity = 0;
+        String upc = itemUPC.getText();
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+
+        try {
+            String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
+            Statement statement = connectDB.createStatement();
+            ResultSet queryOutput = statement.executeQuery(connectQuery);
+
+            while (queryOutput.next()) {
+                itemQuantity = queryOutput.getInt("quantity");
+
+                }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return itemQuantity;
     }
 
     public void returnToMenu(ActionEvent event) throws IOException {
