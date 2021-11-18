@@ -80,21 +80,6 @@ public class Login {
             e.printStackTrace();
         }
 
-
-        /*if(username.getText().equals("stocker") && password.getText().equals("123")) {
-            wrongLogin.setText("Success!");
-
-            m.changeScene("mainMenu.fxml");
-        }
-
-        else if(username.getText().isEmpty() && password.getText().isEmpty()) {
-            wrongLogin.setText("Please enter your data.");
-        }
-
-
-        else {
-            wrongLogin.setText("Wrong username or password!");
-        }*/
     }
 
 
