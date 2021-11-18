@@ -29,7 +29,6 @@ public class Inventory {
     private TextField itemUPC;
     @FXML
     private TextField changeQuantity;
-
     @FXML
     public void onEnter(ActionEvent event) {
 
