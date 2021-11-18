@@ -26,20 +26,34 @@ public class Inventory {
     @FXML
     private Label productNameLabel;
     @FXML
+    private Label invalidFormat;
+    @FXML
     private TextField itemUPC;
     @FXML
     private TextField changeQuantity;
+
     @FXML
     public void onEnter(ActionEvent event) {
-
-        if (connectButton(event))
-            changeQuantity.requestFocus();
+        try {
+            Integer.parseInt(itemUPC.getText());
+            if (connectButton(event))
+                changeQuantity.requestFocus();
+        }
+        catch (NumberFormatException e) {
+            itemNotFoundlabel.setText("Not a valid UPC format");
+        }
     }
 
     @FXML
     public void onEnter1(ActionEvent event) {
-        updateQuantity(event);
-        itemUPC.requestFocus();
+        try {
+            Integer.parseInt(itemUPC.getText());
+            updateQuantity(event);
+            itemUPC.requestFocus();
+        }
+        catch (NumberFormatException e) {
+            invalidFormat.setText("Not a valid quantity type ");
+        }
     }
 
     public boolean connectButton(ActionEvent event) {
@@ -84,7 +98,6 @@ public class Inventory {
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
         String stockStatus= "";
-
 
         try {
             int modifyQuantity = Integer.valueOf(changeQuantity.getText());

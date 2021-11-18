@@ -1,13 +1,10 @@
 package com.example.loginform;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
@@ -16,12 +13,9 @@ import java.sql.*;
 /**
  * This class is used to login to the inventory app.
  */
+
 public class Login {
-
-    public Login() {
-
-    }
-
+    
     @FXML
     private Button button;
     @FXML
@@ -32,7 +26,7 @@ public class Login {
     private PasswordField password;
 
     @FXML
-    public void onEnter(ActionEvent ae)  {
+    public void onEnter(ActionEvent ae) {
         password.requestFocus();
     }
 
@@ -57,9 +51,6 @@ public class Login {
         try {
             PreparedStatement preparedStatement = connectDB.prepareStatement("SELECT * FROM grocery_store_inventory_subsystem.employee WHERE username=?");
             preparedStatement.setString(1, employeeUsername);
-
-
-            Statement statement = connectDB.createStatement();
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.isBeforeFirst()) {
@@ -70,8 +61,7 @@ public class Login {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(employeePassword)) {
                         m.changeScene("mainMenu.fxml");
-                    }
-                    else {
+                    } else {
                         wrongLogin.setText("Password is incorrect");
                     }
                 }
@@ -81,6 +71,5 @@ public class Login {
         }
 
     }
-
 
 }
