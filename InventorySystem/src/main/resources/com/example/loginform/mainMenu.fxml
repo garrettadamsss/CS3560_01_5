@@ -9,7 +9,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="Inventory" layoutX="219.0" layoutY="59.0" mnemonicParsing="false" onAction="#runInventory" prefHeight="30.0" prefWidth="163.0" text="Inventory" />
-            <Button fx:id="productInfo" layoutX="219.0" layoutY="116.0" mnemonicParsing="false" onAction="#viewProductInfo" prefHeight="30.0" prefWidth="163.0" text="View Product Info" />
+            <Button fx:id="product" layoutX="219.0" layoutY="116.0" mnemonicParsing="false" onAction="#viewProductInfo" prefHeight="30.0" prefWidth="163.0" text="View Product Info" />
             <Button fx:id="promotionalPricing" layoutX="220.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="163.0" text="Promotion Pricing" />
             <Button fx:id="logout" layoutX="273.0" layoutY="250.0" mnemonicParsing="false" onAction="#userLogOut" text="Logout" />
          </children>

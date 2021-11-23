@@ -14,7 +14,7 @@ import java.sql.*;
  * This class is used to login to the inventory app.
  */
 
-public class Login {
+public class  Login {
     
     @FXML
     private Button button;
