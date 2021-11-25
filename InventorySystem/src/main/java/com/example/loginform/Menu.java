@@ -14,7 +14,10 @@ public class Menu {
 
     @FXML
     private Button logout;
+    @FXML
     private Button inventory;
+    @FXML
+    private Button product;
 
     public void runInventory(ActionEvent event ) throws IOException {
         GroceryApp m = new GroceryApp();
@@ -24,11 +27,11 @@ public class Menu {
     public void userLogOut(ActionEvent event) throws IOException {
         GroceryApp m = new GroceryApp();
         m.changeScene("loginPage.fxml");
-
     }
 
     public void viewProductInfo(ActionEvent event) throws IOException {
-
+        GroceryApp m = new GroceryApp();
+        m.changeScene("ProductView.fxml");
     }
 
 
