@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.sql.*;
@@ -18,8 +20,6 @@ public class  Login {
     
     @FXML
     private Button button;
-    @FXML
-    private Label wrongLogin;
     @FXML
     private TextField username;
     @FXML
@@ -34,10 +34,14 @@ public class  Login {
     public void onEnter1(ActionEvent ae) throws IOException {
         userLogin(ae);
     }
-
+    @FXML
     public void userLogin(ActionEvent event) throws IOException {
         checkLogin();
     }
+    @FXML
+    private AnchorPane anchorPane;
+
+
 
     private void checkLogin() throws IOException {
         GroceryApp m = new GroceryApp();
@@ -54,7 +58,8 @@ public class  Login {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.isBeforeFirst()) {
-                wrongLogin.setText("User not found");
+                button.setText("User not found");
+                button.setTextFill(Color.RED);
 
             } else {
                 while (resultSet.next()) {
@@ -62,7 +67,8 @@ public class  Login {
                     if (retrievedPassword.equals(employeePassword)) {
                         m.changeScene("mainMenu.fxml");
                     } else {
-                        wrongLogin.setText("Password is incorrect");
+                        button.setText("Incorrect Password");
+                        button.setTextFill(Color.RED);
                     }
                 }
             }

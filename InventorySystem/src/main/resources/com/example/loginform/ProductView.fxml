@@ -11,6 +11,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
+            <TextField fx:id="itemUPC" layoutX="275.0" layoutY="88.0" onAction="#onEnter" />
             <Button fx:id="Menu" layoutX="250.0" layoutY="332.0" mnemonicParsing="false" onAction="#returnToMenu" text="Return to Menu" />
             <Label fx:id="upcLabel" layoutX="203.0" layoutY="85.0" text="UPC:">
                <font>
@@ -21,7 +22,6 @@
             <Label layoutX="214.0" layoutY="197.0" prefHeight="18.0" prefWidth="33.0" text="Price:" />
             <Label layoutX="179.0" layoutY="226.0" text="Department: " />
             <Label layoutX="217.0" layoutY="253.0" text="Size: " />
-            <TextField fx:id="itemUPC" layoutX="275.0" layoutY="88.0" onAction="#onEnter" />
             <Label fx:id="nameLabel" layoutX="264.0" layoutY="163.0" prefHeight="18.0" prefWidth="146.0" />
             <Label fx:id="priceLabel" layoutX="264.0" layoutY="197.0" prefHeight="18.0" prefWidth="109.0" />
             <Label fx:id="departmentLabel" layoutX="264.0" layoutY="225.0" prefHeight="18.0" prefWidth="110.0" />
