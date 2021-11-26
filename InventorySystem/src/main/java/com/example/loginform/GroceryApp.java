@@ -24,6 +24,7 @@ public class GroceryApp extends Application {
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setTitle("Inventory");
 
+        root.requestFocus();
         primaryStage.setScene(scene);
         primaryStage.show();
 

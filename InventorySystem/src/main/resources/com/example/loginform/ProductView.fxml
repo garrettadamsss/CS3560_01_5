@@ -11,25 +11,22 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="Menu" layoutX="257.0" layoutY="334.0" mnemonicParsing="false" onAction="#returnToMenu" style="-fx-background-color: #4daed3;" text="Return to Menu" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Label fx:id="upcLabel" alignment="CENTER_RIGHT" layoutX="170.0" layoutY="72.0" text="UPC:">
+            <TextField fx:id="itemUPC" layoutX="275.0" layoutY="88.0" onAction="#onEnter" />
+            <Button fx:id="Menu" layoutX="250.0" layoutY="332.0" mnemonicParsing="false" onAction="#returnToMenu" text="Return to Menu" />
+            <Label fx:id="upcLabel" layoutX="203.0" layoutY="85.0" text="UPC:">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="145.0" layoutY="144.0" prefHeight="18.0" prefWidth="70.0" text="Name :" />
-            <Label alignment="CENTER_RIGHT" layoutX="145.0" layoutY="191.0" prefHeight="18.0" prefWidth="69.0" text="Price :" />
-            <Label alignment="CENTER_RIGHT" layoutX="143.0" layoutY="233.0" text="Department : " />
-            <Label alignment="CENTER_RIGHT" layoutX="143.0" layoutY="276.0" prefHeight="18.0" prefWidth="73.0" text="Size : " />
-            <TextField fx:id="itemUPC" layoutX="262.0" layoutY="78.0" onAction="#onEnter" />
-            <Label fx:id="nameLabel" layoutX="263.0" layoutY="144.0" prefHeight="18.0" prefWidth="146.0" />
-            <Label fx:id="priceLabel" layoutX="263.0" layoutY="191.0" prefHeight="18.0" prefWidth="109.0" />
-            <Label fx:id="departmentLabel" layoutX="264.0" layoutY="233.0" prefHeight="18.0" prefWidth="110.0" />
-            <Label fx:id="sizeLabel" layoutX="262.0" layoutY="276.0" prefHeight="18.0" prefWidth="110.0" />
-            <Label fx:id="itemNotFound" layoutX="262.0" layoutY="104.0" prefHeight="18.0" prefWidth="149.0" textFill="#f40d0d" />
+            <Label layoutX="214.0" layoutY="164.0" text="Name:" />
+            <Label layoutX="214.0" layoutY="197.0" prefHeight="18.0" prefWidth="33.0" text="Price:" />
+            <Label layoutX="179.0" layoutY="226.0" text="Department: " />
+            <Label layoutX="217.0" layoutY="253.0" text="Size: " />
+            <Label fx:id="nameLabel" layoutX="264.0" layoutY="163.0" prefHeight="18.0" prefWidth="146.0" />
+            <Label fx:id="priceLabel" layoutX="264.0" layoutY="197.0" prefHeight="18.0" prefWidth="109.0" />
+            <Label fx:id="departmentLabel" layoutX="264.0" layoutY="225.0" prefHeight="18.0" prefWidth="110.0" />
+            <Label fx:id="sizeLabel" layoutX="264.0" layoutY="252.0" prefHeight="18.0" prefWidth="110.0" />
+            <Label fx:id="itemNotFound" layoutX="275.0" layoutY="117.0" prefHeight="18.0" prefWidth="149.0" textFill="#f40d0d" />
          </children>
       </AnchorPane>
    </center>

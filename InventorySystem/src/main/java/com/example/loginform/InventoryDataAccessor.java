@@ -12,7 +12,7 @@ public class InventoryDataAccessor {
     public Connection getConnection() {
         String databaseName = "grocery_store_inventory_subsystem";
         String databaseUser = "root";
-        String databasePassword = "Jewelmint1!";
+        String databasePassword = "MYSQL3560!";
         String url = "jdbc:mysql://localhost:3306/" + databaseName;
 
         try{
