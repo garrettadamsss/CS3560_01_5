@@ -17,7 +17,7 @@
                </font>
             </Label>
             <TextField fx:id="itemUPC" layoutX="250.0" layoutY="45.0" onAction="#onEnter" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
-            <Label layoutX="137.0" layoutY="103.0" prefHeight="22.0" prefWidth="76.0" text="Prouct Name:" />
+            <Label layoutX="137.0" layoutY="103.0" prefHeight="22.0" prefWidth="76.0" text="Product Name:" />
             <Label layoutX="120.0" layoutY="144.0" prefHeight="22.0" prefWidth="100.0" text="Inventory Status:" />
             <Label layoutX="161.0" layoutY="181.0" prefHeight="12.0" prefWidth="80.0" text="Quantity:" />
             <Label fx:id="productNameLabel" layoutX="226.0" layoutY="105.0" prefHeight="19.0" prefWidth="153.0" />

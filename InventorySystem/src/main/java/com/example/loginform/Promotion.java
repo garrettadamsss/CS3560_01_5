@@ -25,8 +25,8 @@ public class Promotion {
     private Label invalidFormat;
     @FXML
     private TextField itemUPC;
-   // @FXML
-  //  private TextField changeQuantity;
+    // @FXML
+    //  private TextField changeQuantity;
     @FXML
     private TextField regularPrice;
     @FXML
@@ -41,7 +41,7 @@ public class Promotion {
     public void onEnter(ActionEvent event) {
         try {
             Integer.parseInt(itemUPC.getText());
-           if (connectButton(event))
+            if (checkIfUPCExists(event))
                 regularPrice.requestFocus();
         }
         catch (NumberFormatException e) {
@@ -52,15 +52,26 @@ public class Promotion {
     @FXML
     public void onEnter1(ActionEvent event) {
         promoPrice.requestFocus();
+<<<<<<< HEAD
+=======
     }
 
     @FXML
     public void onPress(ActionEvent event) throws SQLException {
         updateRegularPrice();
+>>>>>>> 6bb24728d82c53999fbe6601dc3a6e031bf8a193
+    }
+
+    @FXML
+    public void onPress(ActionEvent event) throws SQLException {
+        if (checkIfSpecialExists())
+            changePrice();
+        else
+            updateRegularPrice();
     }
 
 
-    public boolean connectButton(ActionEvent event) {
+    public boolean checkIfUPCExists(ActionEvent event) {
 
         boolean itemExists = true;
 
@@ -70,11 +81,9 @@ public class Promotion {
 
 
         String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.product WHERE upc =" + upc;
-        //String connectQuery2 = "SELECT * FROM grocery_store_inventory_subsystem.managerpromo WHERE productUpc =" + upc;
         try {
 
             Statement statement = connectDB.createStatement();
-            Statement statement1 = connectDB.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
             if (queryOutput.next()) {
@@ -98,7 +107,32 @@ public class Promotion {
         return itemExists;
     }
 
+    public boolean checkIfSpecialExists() {
 
+        boolean specialExists = true;
+
+        String upc = itemUPC.getText();
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+
+
+        String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.managerpromo WHERE productUpc =" + upc;
+        try {
+
+            Statement statement = connectDB.createStatement();
+            ResultSet queryOutput = statement.executeQuery(connectQuery);
+
+            if (queryOutput.next()) {
+                specialExists = true;
+            } else if (!(queryOutput.next())) {
+                specialExists = false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return specialExists;
+    }
 
 
     public int currentInventory(ActionEvent event) {
@@ -145,6 +179,31 @@ public class Promotion {
         recordPromoInfo.setString(2, String.valueOf(inputRegPrice));
         recordPromoInfo.setString(3, String.valueOf(inputpromoPrice));
         recordPromoInfo.executeUpdate();
+
+    }
+
+    public void changePrice() {
+        String productUpc = itemUPC.getText();
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+        try {
+            PreparedStatement changePrice = null;
+            String query = "update grocery_store_inventory_subsystem.managerpromo"
+                    + " set promoPrice=?, regularPrice=?,"
+                    + "where productUpc =" + productUpc;
+
+            changePrice = connectDB.prepareStatement(query);
+
+            String inputRegPrice = regularPrice.getText();
+            String inputpromoPrice = promoPrice.getText();
+
+            changePrice.setString(1, (inputpromoPrice));
+            changePrice.setString(2, (inputRegPrice));
+            changePrice.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 

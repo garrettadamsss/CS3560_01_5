@@ -166,7 +166,7 @@ public class Inventory {
             while (queryOutput.next()) {
                 itemQuantity = queryOutput.getInt("quantity");
 
-                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -197,6 +197,10 @@ public class Inventory {
 
     public void returnToMenu(ActionEvent event) throws IOException {
         GroceryApp m = new GroceryApp();
-        m.changeScene("mainMenu.fxml");
+        if(Login.positionID == 11) {
+            m.changeScene("mainMenu.fxml");
+        } else {
+            m.changeScene("mainEmployeeMenu.fxml");
+        }
     }
 }

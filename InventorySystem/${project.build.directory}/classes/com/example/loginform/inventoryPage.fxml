@@ -17,7 +17,7 @@
                </font>
             </Label>
             <TextField fx:id="itemUPC" layoutX="250.0" layoutY="45.0" onAction="#onEnter" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
-            <Label layoutX="137.0" layoutY="103.0" prefHeight="22.0" prefWidth="76.0" text="Product Name:" />
+            <Label layoutX="137.0" layoutY="103.0" prefHeight="22.0" prefWidth="76.0" text="Prouct Name:" />
             <Label layoutX="120.0" layoutY="144.0" prefHeight="22.0" prefWidth="100.0" text="Inventory Status:" />
             <Label layoutX="161.0" layoutY="181.0" prefHeight="12.0" prefWidth="80.0" text="Quantity:" />
             <Label fx:id="productNameLabel" layoutX="226.0" layoutY="105.0" prefHeight="19.0" prefWidth="153.0" />
@@ -28,8 +28,6 @@
             <Button fx:id="menuRetrun" layoutX="244.0" layoutY="312.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="30.0" prefWidth="112.0" text="Return to Menu" />
             <Label fx:id="itemNotFoundlabel" layoutX="254.0" layoutY="86.0" prefHeight="17.0" prefWidth="155.0" textFill="#ee0202" />
             <Label fx:id="invalidFormat" layoutX="247.0" layoutY="249.0" prefHeight="17.0" prefWidth="155.0" textFill="#ee0202" />
-            <Label layoutX="180.0" layoutY="256.0" prefHeight="21.0" prefWidth="148.0" text="Last Modified in Session:" />
-            <Label fx:id="lastUpdatedBy" layoutX="325.0" layoutY="256.0" prefHeight="22.0" prefWidth="100.0" />
          </children>
       </AnchorPane>
    </center>
