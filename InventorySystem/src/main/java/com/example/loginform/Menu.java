@@ -18,6 +18,8 @@ public class Menu {
     private Button inventory;
     @FXML
     private Button product;
+    @FXML
+    private Button promo;
 
     public void runInventory(ActionEvent event ) throws IOException {
         GroceryApp m = new GroceryApp();
@@ -34,5 +36,9 @@ public class Menu {
         m.changeScene("ProductView.fxml");
     }
 
+    public void runPromo(ActionEvent event) throws IOException {
+        GroceryApp m = new GroceryApp();
+        m.changeScene("promotionPage.fxml");
+    }
 
 }

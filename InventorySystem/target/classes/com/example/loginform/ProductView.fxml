@@ -21,7 +21,7 @@
             <Label layoutX="214.0" layoutY="164.0" text="Name:" />
             <Label layoutX="214.0" layoutY="197.0" prefHeight="18.0" prefWidth="33.0" text="Price:" />
             <Label layoutX="179.0" layoutY="226.0" text="Department: " />
-            <Label layoutX="217.0" layoutY="253.0" text="Size: " />
+            <Label layoutX="182.0" layoutY="262.0" text="Weight (oz):" />
             <Label fx:id="nameLabel" layoutX="264.0" layoutY="163.0" prefHeight="18.0" prefWidth="146.0" />
             <Label fx:id="priceLabel" layoutX="264.0" layoutY="197.0" prefHeight="18.0" prefWidth="109.0" />
             <Label fx:id="departmentLabel" layoutX="264.0" layoutY="225.0" prefHeight="18.0" prefWidth="110.0" />
