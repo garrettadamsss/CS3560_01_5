@@ -44,7 +44,7 @@ public class Product {
                nameLabel.setText(queryOutput.getString("name"));
                priceLabel.setText(queryOutput.getString("price"));
                departmentLabel.setText(queryOutput.getString("department"));
-               sizeLabel.setText(queryOutput.getString("weight"));
+               sizeLabel.setText(queryOutput.getString("size_l_w_h"));
                itemNotFound.setText("");
            } else{
                itemNotFound.setText("Item not found!");
