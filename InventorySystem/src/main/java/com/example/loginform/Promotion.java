@@ -1,3 +1,4 @@
+
 package com.example.loginform;
 
 import javafx.event.ActionEvent;
@@ -13,10 +14,6 @@ public class Promotion {
     @FXML
     private Button button;
     @FXML
-    private Label inventoryStatusLabel;
-    @FXML
-    private Label quantityLabel;
-    @FXML
     private Label priceLabel;
     @FXML
     private Label itemNotFoundlabel;
@@ -28,15 +25,24 @@ public class Promotion {
     private Label invalidFormat;
     @FXML
     private TextField itemUPC;
+    // @FXML
+    //  private TextField changeQuantity;
     @FXML
-    private TextField changeQuantity;
+    private TextField regularPrice;
+    @FXML
+    private TextField promoPrice;
+    @FXML
+    private Label regLabel;
+    @FXML
+    private Label promoLabel;
+
 
     @FXML
     public void onEnter(ActionEvent event) {
         try {
             Integer.parseInt(itemUPC.getText());
-            if (connectButton(event))
-                changeQuantity.requestFocus();
+            if (checkIfUPCExists(event))
+                regularPrice.requestFocus();
         }
         catch (NumberFormatException e) {
             itemNotFoundlabel.setText("Not a valid UPC format");
@@ -45,17 +51,27 @@ public class Promotion {
 
     @FXML
     public void onEnter1(ActionEvent event) {
-        try {
-            Integer.parseInt(itemUPC.getText());
-            updateQuantity(event);
-            itemUPC.requestFocus();
-        }
-        catch (NumberFormatException e) {
-            invalidFormat.setText("Not a valid quantity type ");
-        }
+        promoPrice.requestFocus();
+<<<<<<< HEAD
+=======
     }
 
-    public boolean connectButton(ActionEvent event) {
+    @FXML
+    public void onPress(ActionEvent event) throws SQLException {
+        updateRegularPrice();
+>>>>>>> 6bb24728d82c53999fbe6601dc3a6e031bf8a193
+    }
+
+    @FXML
+    public void onPress(ActionEvent event) throws SQLException {
+        if (checkIfSpecialExists())
+            changePrice();
+        else
+            updateRegularPrice();
+    }
+
+
+    public boolean checkIfUPCExists(ActionEvent event) {
 
         boolean itemExists = true;
 
@@ -63,22 +79,21 @@ public class Promotion {
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
 
-        String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
-        String connectQuery2 = "SELECT * FROM grocery_store_inventory_subsystem.product WHERE upc =" + upc;
+
+        String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.product WHERE upc =" + upc;
         try {
 
             Statement statement = connectDB.createStatement();
-            Statement statement1 = connectDB.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
             if (queryOutput.next()) {
-                ResultSet queryOutput1 = statement1.executeQuery(connectQuery2);
+                ResultSet queryOutput1 = statement.executeQuery(connectQuery);
 
                 if (queryOutput1.next())
                     productNameLabel.setText(queryOutput1.getString("name"));
 
                 priceLabel.setText(queryOutput1.getString("price"));
-                quantityLabel.setText(queryOutput.getString("quantity"));
+
                 itemNotFoundlabel.setText("");
                 itemExists = true;
             } else if (!(queryOutput.next())) {
@@ -88,60 +103,35 @@ public class Promotion {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return itemExists;
     }
 
-    public void updateQuantity(ActionEvent event) {
+    public boolean checkIfSpecialExists() {
+
+        boolean specialExists = true;
 
         String upc = itemUPC.getText();
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
-        String stockStatus= "";
 
+
+        String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.managerpromo WHERE productUpc =" + upc;
         try {
-            int modifyQuantity = Integer.valueOf(changeQuantity.getText());
-            int currentInventory = currentInventory(event);
-            PreparedStatement updatedStatement = null;
 
-            if((currentInventory + modifyQuantity < 0)) {
-                updatedStatement = connectDB.prepareStatement("update grocery_store_inventory_subsystem.inventory"
-                        + " set quantity=?, inventory_status=?"
-                        + "where upc =" + upc);
-                String zero = "0";
-                updatedStatement.setString(1, zero);
-            }
-            else {
-                updatedStatement = connectDB.prepareStatement("update grocery_store_inventory_subsystem.inventory"
-                        + " set quantity=quantity+?, inventory_status=?"
-                        + "where upc =" + upc);
-
-                updatedStatement.setString(1, String.valueOf(modifyQuantity));
-            }
-
-            if ( (currentInventory + modifyQuantity) > 0) {
-                stockStatus = "in stock";
-            }
-            else
-                stockStatus = "out of stock";
-
-            updatedStatement.setString(2, stockStatus);
-            updatedStatement.executeUpdate();
-
-            String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
             Statement statement = connectDB.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
-            while (queryOutput.next()) {
-
-                quantityLabel.setText(queryOutput.getString("quantity"));
-                inventoryStatusLabel.setText(queryOutput.getString("inventory_status"));
+            if (queryOutput.next()) {
+                specialExists = true;
+            } else if (!(queryOutput.next())) {
+                specialExists = false;
             }
-            changeQuantity.clear();
-
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
+        return specialExists;
     }
 
 
@@ -165,6 +155,56 @@ public class Promotion {
             e.printStackTrace();
         }
         return itemQuantity;
+    }
+
+    public void updateRegularPrice()throws SQLException {
+        String productUpc = itemUPC.getText();
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+        PreparedStatement recordPromoInfo = null;
+        String query = "INSERT INTO grocery_store_inventory_subsystem.managerpromo(productUpc, regularPrice, promoPrice)"
+                + "VALUES (?, ?, ?)";
+
+        recordPromoInfo = connectDB.prepareStatement(query);
+
+
+        String query2 = "SELECT * FROM grocery_store_inventory_subsystem.managerpromo WHERE productUpc=" + productUpc;
+        Statement statement = connectDB.createStatement();
+        ResultSet queryOutput = statement.executeQuery(query2);
+
+        String inputRegPrice = regularPrice.getText();
+        String inputpromoPrice = promoPrice.getText();
+
+        recordPromoInfo.setString(1, String.valueOf(productUpc));
+        recordPromoInfo.setString(2, String.valueOf(inputRegPrice));
+        recordPromoInfo.setString(3, String.valueOf(inputpromoPrice));
+        recordPromoInfo.executeUpdate();
+
+    }
+
+    public void changePrice() {
+        String productUpc = itemUPC.getText();
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+        try {
+            PreparedStatement changePrice = null;
+            String query = "update grocery_store_inventory_subsystem.managerpromo"
+                    + " set promoPrice=?, regularPrice=?,"
+                    + "where productUpc =" + productUpc;
+
+            changePrice = connectDB.prepareStatement(query);
+
+            String inputRegPrice = regularPrice.getText();
+            String inputpromoPrice = promoPrice.getText();
+
+            changePrice.setString(1, (inputpromoPrice));
+            changePrice.setString(2, (inputRegPrice));
+            changePrice.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void returnToMenu(ActionEvent event) throws IOException {
