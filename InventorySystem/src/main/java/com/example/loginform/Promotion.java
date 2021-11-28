@@ -50,15 +50,13 @@ public class Promotion {
     }
 
     @FXML
-    public void onPress(ActionEvent event) {
-        try {
-            Integer.parseInt(itemUPC.getText());
-            if (connectButton(event))
-                regularPrice.requestFocus();
-        }
-        catch (NumberFormatException e) {
-            itemNotFoundlabel.setText("Not a valid UPC format");
-        }
+    public void onEnter1(ActionEvent event) {
+        promoPrice.requestFocus();
+    }
+
+    @FXML
+    public void onPress(ActionEvent event) throws SQLException {
+        updateRegularPrice();
     }
 
 
@@ -125,13 +123,13 @@ public class Promotion {
         return itemQuantity;
     }
 
-    public void updateRegularPrice(int productUpc)throws SQLException {
-
+    public void updateRegularPrice()throws SQLException {
+        String productUpc = itemUPC.getText();
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
         PreparedStatement recordPromoInfo = null;
-        String query = "INSERT INTO grocery_store_inventory_subsystem.managerpromo(regularPrice, promoPrice)"
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO grocery_store_inventory_subsystem.managerpromo(productUpc, regularPrice, promoPrice)"
+                + "VALUES (?, ?, ?)";
 
         recordPromoInfo = connectDB.prepareStatement(query);
 
@@ -140,9 +138,12 @@ public class Promotion {
         Statement statement = connectDB.createStatement();
         ResultSet queryOutput = statement.executeQuery(query2);
 
+        String inputRegPrice = regularPrice.getText();
+        String inputpromoPrice = promoPrice.getText();
 
-        recordPromoInfo.setString(1, String.valueOf(regularPrice));
-        recordPromoInfo.setString(2, String.valueOf(promoPrice));
+        recordPromoInfo.setString(1, String.valueOf(productUpc));
+        recordPromoInfo.setString(2, String.valueOf(inputRegPrice));
+        recordPromoInfo.setString(3, String.valueOf(inputpromoPrice));
         recordPromoInfo.executeUpdate();
 
     }
