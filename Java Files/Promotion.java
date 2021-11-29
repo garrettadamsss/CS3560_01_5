@@ -32,6 +32,8 @@ public class Promotion {
     private TextField promoPrice;
     @FXML
     private Label invalidPrice;
+    @FXML
+    private Label priceUpdated;
 
     public void initialize() {
         priceButton.setDisable(true);
@@ -43,6 +45,7 @@ public class Promotion {
         try {
             Integer.parseInt(itemUPC.getText());
            if (checkIfUPCExists(event)) {
+               priceUpdated.setText("");
                priceButton.setDisable(false);
                revertPriceButton.setDisable(false);
                promoPrice.requestFocus();
@@ -197,6 +200,7 @@ public class Promotion {
             regularPriceLabel.setText("");
             effectivePriceLabel.setText("");
             invalidPrice.setText("");
+            priceUpdated.setText("Price Updated");
             itemUPC.requestFocus();
             initialize();
         } catch (SQLException e) {
@@ -240,6 +244,8 @@ public class Promotion {
             productNameLabel.setText("");
             regularPriceLabel.setText("");
             effectivePriceLabel.setText("");
+            invalidPrice.setText("");
+            priceUpdated.setText("Price Updated");
             itemUPC.requestFocus();
             initialize();
         } catch (SQLException e) {
