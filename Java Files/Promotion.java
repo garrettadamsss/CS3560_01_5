@@ -121,7 +121,7 @@ public class Promotion {
                 if (!(regularPrice == effectivePrice))
                     effectivePriceLabel.setTextFill(Color.RED);
                 else
-                    effectivePriceLabel.setTextFill(Color.BLACK);
+                    effectivePriceLabel.setTextFill(Color.WHITE);
                 itemNotFoundlabel.setText("");
                 itemExists = true;
             } else if (!(queryOutput.next())) {
