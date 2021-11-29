@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 import javax.xml.transform.Result;
 import java.sql.*;
@@ -15,7 +16,7 @@ public class Product {
     @FXML
     private TextField itemUPC;
     @FXML
-    private Label itemNotFound, nameLabel, priceLabel, departmentLabel, sizeLabel;
+    private Label itemNotFound, nameLabel, regularPriceLabel, effectivePriceLabel,  departmentLabel, sizeLabel;
     @FXML
     private Button Menu;
 
@@ -24,7 +25,7 @@ public class Product {
         try{
             Integer.parseInt(itemUPC.getText());
             connectButton(event);
-
+            itemUPC.requestFocus();
 
         } catch(Exception e){
             e.printStackTrace();
@@ -33,28 +34,6 @@ public class Product {
     }
 
     public void connectButton(ActionEvent event){
-<<<<<<< HEAD
-        InventoryDataAccessor connectNow = new InventoryDataAccessor();
-        Connection connectDB = connectNow.getConnection();
-        String upc = itemUPC.getText();
-        String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.product WHERE upc = " + upc;
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet queryOutput = statement.executeQuery(connectQuery);
-            if(queryOutput.next()){
-                nameLabel.setText(queryOutput.getString("name"));
-                priceLabel.setText(queryOutput.getString("price"));
-                departmentLabel.setText(queryOutput.getString("department"));
-                sizeLabel.setText(queryOutput.getString("weight"));
-                itemNotFound.setText("");
-            } else{
-                itemNotFound.setText("Item not found!");
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-
-        }
-=======
        InventoryDataAccessor connectNow = new InventoryDataAccessor();
        Connection connectDB = connectNow.getConnection();
        String upc = itemUPC.getText();
@@ -64,7 +43,14 @@ public class Product {
            ResultSet queryOutput = statement.executeQuery(connectQuery);
            if(queryOutput.next()){
                nameLabel.setText(queryOutput.getString("name"));
-               priceLabel.setText(queryOutput.getString("price"));
+               regularPriceLabel.setText(queryOutput.getString("regularPrice"));
+               double regularPrice = Double.parseDouble(regularPriceLabel.getText());
+               effectivePriceLabel.setText(queryOutput.getString("effectivePrice"));
+               double effectivePrice = Double.parseDouble(effectivePriceLabel.getText());
+               if (!(regularPrice == effectivePrice))
+                   effectivePriceLabel.setTextFill(Color.RED);
+               else
+                   effectivePriceLabel.setTextFill(Color.BLACK);
                departmentLabel.setText(queryOutput.getString("department"));
                sizeLabel.setText(queryOutput.getString("weight"));
                itemNotFound.setText("");
@@ -75,17 +61,11 @@ public class Product {
            e.printStackTrace();
 
        }
->>>>>>> 6bb24728d82c53999fbe6601dc3a6e031bf8a193
     }
 
     public void returnToMenu(ActionEvent event) throws IOException {
         GroceryApp m = new GroceryApp();
-        if(Login.positionID == 11) {
-            m.changeScene("mainMenu.fxml");
-        } else {
-            m.changeScene("mainEmployeeMenu.fxml");
-        }
-
+        m.changeScene("mainMenu.fxml");
     }
 
 }

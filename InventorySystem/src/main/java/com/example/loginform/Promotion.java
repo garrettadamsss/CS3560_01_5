@@ -6,43 +6,36 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 import java.sql.*;
 import java.io.IOException;
 
 public class Promotion {
     @FXML
-    private Button button;
+    private Button priceButton;
     @FXML
-    private Label priceLabel;
+    private Label regularPriceLabel;
+    @FXML
+    private Label effectivePriceLabel;
     @FXML
     private Label itemNotFoundlabel;
     @FXML
     private Label productNameLabel;
     @FXML
-    private Label dateLabel;
-    @FXML
-    private Label invalidFormat;
-    @FXML
     private TextField itemUPC;
-    // @FXML
-    //  private TextField changeQuantity;
-    @FXML
-    private TextField regularPrice;
     @FXML
     private TextField promoPrice;
     @FXML
-    private Label regLabel;
-    @FXML
-    private Label promoLabel;
+    private Label invalidPrice;
 
 
     @FXML
     public void onEnter(ActionEvent event) {
         try {
             Integer.parseInt(itemUPC.getText());
-            if (checkIfUPCExists(event))
-                regularPrice.requestFocus();
+           if (checkIfUPCExists(event))
+               promoPrice.requestFocus();
         }
         catch (NumberFormatException e) {
             itemNotFoundlabel.setText("Not a valid UPC format");
@@ -51,34 +44,33 @@ public class Promotion {
 
     @FXML
     public void onEnter1(ActionEvent event) {
-        promoPrice.requestFocus();
-<<<<<<< HEAD
-=======
+        priceButton.requestFocus();
     }
 
     @FXML
-    public void onPress(ActionEvent event) throws SQLException {
-        updateRegularPrice();
->>>>>>> 6bb24728d82c53999fbe6601dc3a6e031bf8a193
-    }
-
-    @FXML
-    public void onPress(ActionEvent event) throws SQLException {
-        if (checkIfSpecialExists())
+    public void onPress(ActionEvent event) {
+        try {
+            Double.parseDouble(promoPrice.getText());
             changePrice();
-        else
-            updateRegularPrice();
+            itemUPC.requestFocus();
+        }
+        catch (NumberFormatException e) {
+            invalidPrice.setText("Not a valid price type ");
+        }
+
+    }
+    @FXML
+    public void revert(ActionEvent event) {
+        revertPrice();
     }
 
 
     public boolean checkIfUPCExists(ActionEvent event) {
-
         boolean itemExists = true;
 
         String upc = itemUPC.getText();
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
-
 
         String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.product WHERE upc =" + upc;
         try {
@@ -92,8 +84,14 @@ public class Promotion {
                 if (queryOutput1.next())
                     productNameLabel.setText(queryOutput1.getString("name"));
 
-                priceLabel.setText(queryOutput1.getString("price"));
-
+                regularPriceLabel.setText(queryOutput1.getString("regularPrice"));
+                double regularPrice = Double.parseDouble(regularPriceLabel.getText());
+                effectivePriceLabel.setText(queryOutput1.getString("effectivePrice"));
+                double effectivePrice = Double.parseDouble(effectivePriceLabel.getText());
+                if (!(regularPrice == effectivePrice))
+                    effectivePriceLabel.setTextFill(Color.RED);
+                else
+                    effectivePriceLabel.setTextFill(Color.BLACK);
                 itemNotFoundlabel.setText("");
                 itemExists = true;
             } else if (!(queryOutput.next())) {
@@ -134,77 +132,91 @@ public class Promotion {
         return specialExists;
     }
 
-
-    public int currentInventory(ActionEvent event) {
-
-        int itemQuantity = 0;
-        String upc = itemUPC.getText();
-        InventoryDataAccessor connectNow = new InventoryDataAccessor();
-        Connection connectDB = connectNow.getConnection();
-
-        try {
-            String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
-            Statement statement = connectDB.createStatement();
-            ResultSet queryOutput = statement.executeQuery(connectQuery);
-
-            while (queryOutput.next()) {
-                itemQuantity = queryOutput.getInt("quantity");
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return itemQuantity;
-    }
-
-    public void updateRegularPrice()throws SQLException {
-        String productUpc = itemUPC.getText();
-        InventoryDataAccessor connectNow = new InventoryDataAccessor();
-        Connection connectDB = connectNow.getConnection();
-        PreparedStatement recordPromoInfo = null;
-        String query = "INSERT INTO grocery_store_inventory_subsystem.managerpromo(productUpc, regularPrice, promoPrice)"
-                + "VALUES (?, ?, ?)";
-
-        recordPromoInfo = connectDB.prepareStatement(query);
-
-
-        String query2 = "SELECT * FROM grocery_store_inventory_subsystem.managerpromo WHERE productUpc=" + productUpc;
-        Statement statement = connectDB.createStatement();
-        ResultSet queryOutput = statement.executeQuery(query2);
-
-        String inputRegPrice = regularPrice.getText();
-        String inputpromoPrice = promoPrice.getText();
-
-        recordPromoInfo.setString(1, String.valueOf(productUpc));
-        recordPromoInfo.setString(2, String.valueOf(inputRegPrice));
-        recordPromoInfo.setString(3, String.valueOf(inputpromoPrice));
-        recordPromoInfo.executeUpdate();
-
-    }
-
     public void changePrice() {
         String productUpc = itemUPC.getText();
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
+
+        String inputpromoPrice = promoPrice.getText();
+        PreparedStatement changeManagerPromo = null;
         try {
-            PreparedStatement changePrice = null;
-            String query = "update grocery_store_inventory_subsystem.managerpromo"
-                    + " set promoPrice=?, regularPrice=?,"
-                    + "where productUpc =" + productUpc;
+            if (checkIfSpecialExists()) {
 
-            changePrice = connectDB.prepareStatement(query);
+                changeManagerPromo = connectDB.prepareStatement("update grocery_store_inventory_subsystem.managerpromo"
+                        + " set promoPrice=?"
+                        + "where productUpc =" + productUpc);
+                changeManagerPromo.setString(1, (inputpromoPrice));
 
-            String inputRegPrice = regularPrice.getText();
-            String inputpromoPrice = promoPrice.getText();
+            }
+            else if(!checkIfSpecialExists()) {
+                changeManagerPromo = connectDB.prepareStatement("INSERT INTO grocery_store_inventory_subsystem.managerpromo(productUpc, promoPrice)"
+                        + "VALUES (?, ?)");
 
-            changePrice.setString(1, (inputpromoPrice));
-            changePrice.setString(2, (inputRegPrice));
-            changePrice.executeUpdate();
+                changeManagerPromo.setString(1, String.valueOf(productUpc));
+                changeManagerPromo.setString(2, String.valueOf(inputpromoPrice));
+            }
 
+            changeManagerPromo.executeUpdate();
+            PreparedStatement changeEffectivePrice = null;
+
+            changeEffectivePrice = connectDB.prepareStatement("update grocery_store_inventory_subsystem.product"
+                    + " set effectivePrice=?"
+                    + "where upc =" + productUpc);
+            changeEffectivePrice.setString(1, (inputpromoPrice));
+            changeEffectivePrice.executeUpdate();
+
+            promoPrice.clear();
+            productNameLabel.setText("");
+            regularPriceLabel.setText("");
+            effectivePriceLabel.setText("");
+            invalidPrice.setText("");
+            itemUPC.requestFocus();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void revertPrice() {
+        String productUpc = itemUPC.getText();
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+
+        String regPrice = null;
+        PreparedStatement removeManagerPromo = null;
+        try {
+            String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.product WHERE upc=" + productUpc;
+            Statement statement = connectDB.createStatement();
+            ResultSet queryOutput = statement.executeQuery(connectQuery);
+
+            while (queryOutput.next()) {
+                regPrice = queryOutput.getString("regularPrice");
+            }
+
+            if (checkIfSpecialExists()) {
+                String deleteRow = "DELETE FROM grocery_store_inventory_subsystem.managerpromo where productUpc =?" ;
+                removeManagerPromo = connectDB.prepareStatement(deleteRow);
+                removeManagerPromo.setString(1, productUpc);
+                removeManagerPromo.execute();
+
+            }
+
+            PreparedStatement changeEffectivePrice = null;
+            changeEffectivePrice = connectDB.prepareStatement("update grocery_store_inventory_subsystem.product"
+                    + " set effectivePrice=?"
+                    + "where upc =" + productUpc);
+            changeEffectivePrice.setString(1, (regPrice));
+            changeEffectivePrice.executeUpdate();
+            
+            promoPrice.clear();
+            productNameLabel.setText("");
+            regularPriceLabel.setText("");
+            effectivePriceLabel.setText("");
+            itemUPC.requestFocus();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void returnToMenu(ActionEvent event) throws IOException {

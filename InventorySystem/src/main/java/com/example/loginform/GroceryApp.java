@@ -20,6 +20,8 @@ public class GroceryApp extends Application {
         stg = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+
 
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setTitle("Inventory");

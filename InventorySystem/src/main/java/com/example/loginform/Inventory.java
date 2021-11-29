@@ -133,7 +133,7 @@ public class Inventory {
             updatedStatement.setString(3, getSessionID());
             updatedStatement.executeUpdate();
 
-            String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
+           String connectQuery = "SELECT * FROM grocery_store_inventory_subsystem.inventory WHERE upc=" + upc;
             Statement statement = connectDB.createStatement();
             ResultSet queryOutput = statement.executeQuery(connectQuery);
 
@@ -197,10 +197,6 @@ public class Inventory {
 
     public void returnToMenu(ActionEvent event) throws IOException {
         GroceryApp m = new GroceryApp();
-        if(Login.positionID == 11) {
-            m.changeScene("mainMenu.fxml");
-        } else {
-            m.changeScene("mainEmployeeMenu.fxml");
-        }
+        m.changeScene("mainMenu.fxml");
     }
 }
