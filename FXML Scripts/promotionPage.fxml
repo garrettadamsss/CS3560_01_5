@@ -15,10 +15,10 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <TextField fx:id="itemUPC" layoutX="250.0" layoutY="45.0" onAction="#onEnter" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
+                <TextField fx:id="itemUPC" layoutX="233.0" layoutY="45.0" onAction="#onEnter" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
                 <TextField fx:id="promoPrice" layoutX="228.0" layoutY="206.0" onAction="#onEnter1" promptText="Promo Price" />
-            <Button fx:id="priceButton" layoutX="152.0" layoutY="269.0" mnemonicParsing="false" onAction="#onPress" text="Apply Promotion Price" />
-            <Button fx:id="revertPriceButton" layoutX="311.0" layoutY="269.0" mnemonicParsing="false" onAction="#revert" text="Revert to Regular Price" />
+            <Button fx:id="priceButton" layoutX="388.0" layoutY="207.0" mnemonicParsing="false" onAction="#onPress" text="Apply Promotion Price" />
+            <Button fx:id="revertPriceButton" layoutX="387.0" layoutY="162.0" mnemonicParsing="false" onAction="#revert" text="Revert to Regular Price" />
                 <Button fx:id="menuRetrun" layoutX="244.0" layoutY="337.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="30.0" prefWidth="112.0" text="Return to Menu" />
                 <Label layoutX="149.0" layoutY="113.0" prefHeight="22.0" prefWidth="76.0" text="Prouct Name:" />
                 <Label layoutX="149.0" layoutY="142.0" prefHeight="25.0" prefWidth="76.0" text="Regular Price:" textAlignment="CENTER" />
@@ -30,6 +30,11 @@
             <Label fx:id="effectivePriceLabel" layoutX="233.0" layoutY="174.0" prefHeight="18.0" prefWidth="81.0" />
             <Label layoutX="143.0" layoutY="170.0" prefHeight="25.0" prefWidth="76.0" text="Effective Price:" textAlignment="CENTER" />
             <Label fx:id="invalidPrice" layoutX="223.0" layoutY="239.0" prefHeight="17.0" prefWidth="155.0" textFill="#ee0202" />
+            <Label fx:id="priceUpdated" layoutX="232.0" layoutY="268.0" prefHeight="25.0" prefWidth="137.0" textAlignment="CENTER" textFill="#34b900">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </children>
