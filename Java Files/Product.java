@@ -48,9 +48,9 @@ public class Product {
                effectivePriceLabel.setText(queryOutput.getString("effectivePrice"));
                double effectivePrice = Double.parseDouble(effectivePriceLabel.getText());
                if (!(regularPrice == effectivePrice))
-                   effectivePriceLabel.setTextFill(Color.RED);
+                   effectivePriceLabel.setTextFill(Color.web("#a40000"));
                else
-                   effectivePriceLabel.setTextFill(Color.BLACK);
+                   effectivePriceLabel.setTextFill(Color.WHITE);
                departmentLabel.setText(queryOutput.getString("department"));
                sizeLabel.setText(queryOutput.getString("weight"));
                itemNotFound.setText("");

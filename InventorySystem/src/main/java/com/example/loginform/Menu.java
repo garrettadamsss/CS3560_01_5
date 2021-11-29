@@ -3,6 +3,7 @@ package com.example.loginform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
@@ -20,7 +21,15 @@ public class Menu {
     private Button product;
     @FXML
     private Button promo;
+    @FXML
+    private Label userfirstNameLabel;
+    @FXML
+    private Label sessionIDLabel;
 
+    public void initialize() {
+        userfirstNameLabel.setText(Login.userFirstName);
+        sessionIDLabel.setText(Login.sessionID);
+    }
     public void runInventory(ActionEvent event ) throws IOException {
         GroceryApp m = new GroceryApp();
         m.changeScene("inventoryPage.fxml");
