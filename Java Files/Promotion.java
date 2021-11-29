@@ -47,7 +47,8 @@ public class Promotion {
            if (checkIfUPCExists(event)) {
                priceUpdated.setText("");
                priceButton.setDisable(false);
-               revertPriceButton.setDisable(false);
+               if (checkIfSpecialExists())
+                   revertPriceButton.setDisable(false);
                promoPrice.requestFocus();
            }
         }
@@ -119,7 +120,7 @@ public class Promotion {
                 effectivePriceLabel.setText(queryOutput1.getString("effectivePrice"));
                 double effectivePrice = Double.parseDouble(effectivePriceLabel.getText());
                 if (!(regularPrice == effectivePrice))
-                    effectivePriceLabel.setTextFill(Color.RED);
+                    effectivePriceLabel.setTextFill(Color.web("#a40000"));
                 else
                     effectivePriceLabel.setTextFill(Color.WHITE);
                 itemNotFoundlabel.setText("");
@@ -174,7 +175,6 @@ public class Promotion {
         PreparedStatement changeManagerPromo = null;
         try {
             if (checkIfSpecialExists()) {
-
                 changeManagerPromo = connectDB.prepareStatement("update grocery_store_inventory_subsystem.managerpromo"
                         + " set promoPrice=?"
                         + "where productUpc =" + productUpc);

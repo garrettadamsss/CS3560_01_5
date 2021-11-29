@@ -5,24 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d2da16f-b7f9-41ea-b326-78f79e1f5043" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/artifacts/Inventory_jar/loginForm.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/GroceryApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/loginPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/mainMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/grocerystoreimg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/GroceryApp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/Inventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/InventoryDataAccessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/Menu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/inventoryPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/loginPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Inventory_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Inventory_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_ea_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_ea_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/loginForm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/loginForm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/loginform/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/loginform/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/loginform/InventoryDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/InventoryDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/loginform/ProductView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/ProductView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/loginform/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/loginform/inventoryPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/inventoryPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/loginform/loginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/loginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/loginform/mainEmployeeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/mainEmployeeMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/loginform/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/loginform/promotionPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/promotionPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/InventoryDataAccessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/InventoryDataAccessor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/ProductView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/ProductView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/inventoryPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/inventoryPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/loginPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/loginPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/mainEmployeeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/mainEmployeeMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/promotionPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/promotionPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/loginform/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/Login.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +66,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="21DujMk0stvTl1hftcdWDjx3sol" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -49,17 +77,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-17.0.1/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/example/loginform" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.43333334" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mhess\IdeaProjects\InventorySystem\src\main\resources\com\example\loginform" />
       <recent name="C:\Users\mhess\IdeaProjects\InventorySystem\src\main\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mhess\IdeaProjects\InventorySystem\src\main\resources\com\example\loginform" />
       <recent name="C:\Users\mhess\IdeaProjects\InventorySystem\src\main\resources\images" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -98,11 +128,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

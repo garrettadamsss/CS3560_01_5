@@ -19,8 +19,8 @@ import java.sql.*;
 
 public class  Login {
     public static String sessionID = null;
-
     public static int positionID = 0;
+    public static String userFirstName = null;
 
     @FXML
     private Button button;
@@ -83,6 +83,7 @@ public class  Login {
 
 
                         positionID = resultSet.getInt("position_id");
+                        userFirstName = resultSet.getString("first_name");
                         //String retrievedPositionID = resultSet.getString("position_id");
                         if (positionID == 11) {
                             m.changeScene("mainMenu.fxml");
