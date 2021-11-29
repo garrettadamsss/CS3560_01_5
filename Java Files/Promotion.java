@@ -1,7 +1,6 @@
 
 package com.example.loginform;
 
-import com.sun.javafx.menu.MenuItemBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +10,7 @@ import javafx.scene.paint.Color;
 
 import java.sql.*;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class Promotion {
 
@@ -167,7 +167,10 @@ public class Promotion {
         InventoryDataAccessor connectNow = new InventoryDataAccessor();
         Connection connectDB = connectNow.getConnection();
 
+
         String inputpromoPrice = promoPrice.getText();
+        double promoPriceDouble = Double.parseDouble(inputpromoPrice);
+        inputpromoPrice = String.format("%.2f", promoPriceDouble);
         PreparedStatement changeManagerPromo = null;
         try {
             if (checkIfSpecialExists()) {
