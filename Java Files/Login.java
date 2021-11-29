@@ -1,14 +1,14 @@
 package com.example.loginform;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import java.util.Random;
 
 import java.io.IOException;
 import java.sql.*;
@@ -16,23 +16,19 @@ import java.sql.*;
 /**
  * This class is used to login to the inventory app.
  */
-public class Login {
 
-    public Login() {
-
-    }
-
+public class  Login {
+    public static String sessionID = null;
+    
     @FXML
     private Button button;
-    @FXML
-    private Label wrongLogin;
     @FXML
     private TextField username;
     @FXML
     private PasswordField password;
 
     @FXML
-    public void onEnter(ActionEvent ae)  {
+    public void onEnter(ActionEvent ae) {
         password.requestFocus();
     }
 
@@ -40,10 +36,14 @@ public class Login {
     public void onEnter1(ActionEvent ae) throws IOException {
         userLogin(ae);
     }
-
+    @FXML
     public void userLogin(ActionEvent event) throws IOException {
         checkLogin();
     }
+    @FXML
+    private AnchorPane anchorPane;
+
+
 
     private void checkLogin() throws IOException {
         GroceryApp m = new GroceryApp();
@@ -55,24 +55,27 @@ public class Login {
         String employeePassword = password.getText();
 
         try {
-            PreparedStatement preparedStatement = connectDB.prepareStatement("SELECT * FROM grocery_store_inventory_subsystem.employee WHERE username=?");
-            preparedStatement.setString(1, employeeUsername);
+            PreparedStatement loginVerify = connectDB.prepareStatement("SELECT * FROM grocery_store_inventory_subsystem.employee WHERE username=?");
+            loginVerify.setString(1, employeeUsername);
+            ResultSet resultSet = loginVerify.executeQuery();
 
-
-            Statement statement = connectDB.createStatement();
-            ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.isBeforeFirst()) {
-                wrongLogin.setText("User not found");
+                button.setText("User not found");
+                button.setTextFill(Color.RED);
 
             } else {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(employeePassword)) {
+
+                        int employee_id = resultSet.getInt("employee_id");
+                        recordLoginSession(employee_id);
+
                         m.changeScene("mainMenu.fxml");
-                    }
-                    else {
-                        wrongLogin.setText("Password is incorrect");
+                    } else {
+                        button.setText("Incorrect Password");
+                        button.setTextFill(Color.RED);
                     }
                 }
             }
@@ -80,22 +83,31 @@ public class Login {
             e.printStackTrace();
         }
 
-
-        /*if(username.getText().equals("stocker") && password.getText().equals("123")) {
-            wrongLogin.setText("Success!");
-
-            m.changeScene("mainMenu.fxml");
-        }
-
-        else if(username.getText().isEmpty() && password.getText().isEmpty()) {
-            wrongLogin.setText("Please enter your data.");
-        }
-
-
-        else {
-            wrongLogin.setText("Wrong username or password!");
-        }*/
     }
 
+    private void recordLoginSession(int employee_id) throws SQLException {
+        InventoryDataAccessor connectNow = new InventoryDataAccessor();
+        Connection connectDB = connectNow.getConnection();
+
+        PreparedStatement recordSessionInfo = null;
+        String query = "INSERT INTO grocery_store_inventory_subsystem.last_update(session_id, employee_id)"
+                + "VALUES (?, ?)";
+
+        recordSessionInfo = connectDB.prepareStatement(query);
+        Random rnd = new Random();
+
+        sessionID = String.format("%06d", rnd.nextInt(999999));
+        String query2 = "SELECT * FROM grocery_store_inventory_subsystem.last_update WHERE session_id=" + sessionID;
+        Statement statement = connectDB.createStatement();
+        ResultSet queryOutput = statement.executeQuery(query2);
+
+        while(queryOutput.next()) {
+            sessionID = String.format("%06d", rnd.nextInt(999999));
+        }
+
+        recordSessionInfo.setString (1, sessionID);
+        recordSessionInfo.setInt (2, employee_id);
+        recordSessionInfo.executeUpdate();
+    }
 
 }
