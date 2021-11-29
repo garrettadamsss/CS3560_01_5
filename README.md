@@ -1,6 +1,6 @@
 # Grocery Store Inventory System
 
-![image](https://user-images.githubusercontent.com/85195875/141662664-53593f25-814a-4eac-a091-1774a9e69044.png)
+![image](https://user-images.githubusercontent.com/85195875/143800799-37f30001-acfb-468a-8323-406449b7c795.png)
 
 This is the Login Page to enter the Grocery inventory system. The username and password are currently hardkeyed to username:stocker password:123. We are working on connecting to the database of login information.
 
