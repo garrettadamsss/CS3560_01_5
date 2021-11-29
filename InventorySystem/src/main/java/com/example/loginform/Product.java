@@ -65,7 +65,12 @@ public class Product {
 
     public void returnToMenu(ActionEvent event) throws IOException {
         GroceryApp m = new GroceryApp();
-        m.changeScene("mainMenu.fxml");
+        if(Login.positionID == 11) {
+            m.changeScene("mainMenu.fxml");
+        } else {
+            m.changeScene("mainEmployeeMenu.fxml");
+        }
+
     }
 
 }

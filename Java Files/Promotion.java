@@ -1,6 +1,7 @@
 
 package com.example.loginform;
 
+import com.sun.javafx.menu.MenuItemBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,8 +13,11 @@ import java.sql.*;
 import java.io.IOException;
 
 public class Promotion {
+
     @FXML
     private Button priceButton;
+    @FXML
+    private Button revertPriceButton;
     @FXML
     private Label regularPriceLabel;
     @FXML
@@ -29,13 +33,20 @@ public class Promotion {
     @FXML
     private Label invalidPrice;
 
+    public void initialize() {
+        priceButton.setDisable(true);
+        revertPriceButton.setDisable(true);
+    }
 
     @FXML
     public void onEnter(ActionEvent event) {
         try {
             Integer.parseInt(itemUPC.getText());
-           if (checkIfUPCExists(event))
+           if (checkIfUPCExists(event)) {
+               priceButton.setDisable(false);
+               revertPriceButton.setDisable(false);
                promoPrice.requestFocus();
+           }
         }
         catch (NumberFormatException e) {
             itemNotFoundlabel.setText("Not a valid UPC format");
@@ -50,9 +61,16 @@ public class Promotion {
     @FXML
     public void onPress(ActionEvent event) {
         try {
-            Double.parseDouble(promoPrice.getText());
-            changePrice();
-            itemUPC.requestFocus();
+
+            Integer.parseInt(itemUPC.getText());
+            if (checkIfUPCExists(event)) {
+                Double.parseDouble(promoPrice.getText());
+                changePrice();
+                itemUPC.requestFocus();
+            }
+            else if (!checkIfUPCExists(event))
+                itemNotFoundlabel.setText("Item Not found");
+
         }
         catch (NumberFormatException e) {
             invalidPrice.setText("Not a valid price type ");
@@ -61,7 +79,16 @@ public class Promotion {
     }
     @FXML
     public void revert(ActionEvent event) {
-        revertPrice();
+        try {
+            Integer.parseInt(itemUPC.getText());
+            if (checkIfUPCExists(event))
+                revertPrice();
+            itemUPC.requestFocus();
+        }
+        catch (NumberFormatException e) {
+            invalidPrice.setText("Not a valid UPC format");
+        }
+
     }
 
 
@@ -171,6 +198,7 @@ public class Promotion {
             effectivePriceLabel.setText("");
             invalidPrice.setText("");
             itemUPC.requestFocus();
+            initialize();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -213,7 +241,7 @@ public class Promotion {
             regularPriceLabel.setText("");
             effectivePriceLabel.setText("");
             itemUPC.requestFocus();
-
+            initialize();
         } catch (SQLException e) {
             e.printStackTrace();
         }
