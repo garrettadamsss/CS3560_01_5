@@ -10,6 +10,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/loginform/Menu.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/loginPage.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/loginform/mainMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/farm.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/grocerystoreimg.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/GroceryApp.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/com/example/loginform/Inventory.class" afterDir="false" />
@@ -77,7 +78,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Documents/Cal Poly/Fall 2021/New folder/CS3560_01_5/InventorySystem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/images" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.43333334" />
@@ -85,6 +86,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mhess\IdeaProjects\InventorySystem\src\main\resources\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mhess\IdeaProjects\InventorySystem\src\main\resources\images" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">

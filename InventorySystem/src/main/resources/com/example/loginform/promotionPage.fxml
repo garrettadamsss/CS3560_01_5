@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -10,9 +12,14 @@
     <children>
         <AnchorPane fx:id="onButton" layoutY="1.0" prefHeight="398.0" prefWidth="600.0">
             <children>
-                <Label layoutX="175.0" layoutY="46.0" prefHeight="32.0" prefWidth="51.0" text="UPC:">
+            <ImageView fitHeight="401.0" fitWidth="609.0" layoutX="-7.0" layoutY="-1.0">
+               <image>
+                  <Image url="@../../../images/az5o6qeepxn51.png" />
+               </image>
+            </ImageView>
+                <Label layoutX="175.0" layoutY="46.0" prefHeight="32.0" prefWidth="51.0" text="UPC:" textFill="WHITE">
                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
                 <TextField fx:id="itemUPC" layoutX="233.0" layoutY="45.0" onAction="#onEnter" prefHeight="34.0" prefWidth="175.0" promptText="Item UPC" />
@@ -20,15 +27,30 @@
             <Button fx:id="priceButton" layoutX="388.0" layoutY="207.0" mnemonicParsing="false" onAction="#onPress" text="Apply Promotion Price" />
             <Button fx:id="revertPriceButton" layoutX="387.0" layoutY="162.0" mnemonicParsing="false" onAction="#revert" text="Revert to Regular Price" />
                 <Button fx:id="menuRetrun" layoutX="244.0" layoutY="337.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="30.0" prefWidth="112.0" text="Return to Menu" />
-                <Label layoutX="149.0" layoutY="113.0" prefHeight="22.0" prefWidth="76.0" text="Prouct Name:" />
-                <Label layoutX="149.0" layoutY="142.0" prefHeight="25.0" prefWidth="76.0" text="Regular Price:" textAlignment="CENTER" />
-                <Label fx:id="productNameLabel" layoutX="226.0" layoutY="115.0" prefHeight="19.0" prefWidth="153.0" />
-                <Label fx:id="regularPriceLabel" layoutX="233.0" layoutY="145.0" prefHeight="18.0" prefWidth="81.0" />
-                <Label layoutX="25.0" layoutY="208.0" prefHeight="22.0" prefWidth="200.0" text="                     Enter New Promo Price:" />
+                <Label layoutX="128.0" layoutY="106.0" prefHeight="19.0" prefWidth="95.0" text="Product Name:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+                <Label layoutX="132.0" layoutY="134.0" prefHeight="25.0" prefWidth="88.0" text="Regular Price:" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+                <Label fx:id="productNameLabel" layoutX="239.0" layoutY="106.0" prefHeight="19.0" prefWidth="127.0" textFill="WHITE" />
+                <Label fx:id="regularPriceLabel" layoutX="233.0" layoutY="138.0" prefHeight="18.0" prefWidth="81.0" textFill="WHITE" />
+                <Label layoutX="74.0" layoutY="203.0" prefHeight="34.0" prefWidth="149.0" text="Enter New Promo Price:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
                 <Label fx:id="itemNotFoundlabel" layoutX="254.0" layoutY="86.0" prefHeight="17.0" prefWidth="155.0" textFill="#ee0202" />
-                <Label fx:id="regLabel" layoutX="233.0" layoutY="146.0" prefHeight="18.0" prefWidth="81.0" />
-            <Label fx:id="effectivePriceLabel" layoutX="233.0" layoutY="174.0" prefHeight="18.0" prefWidth="81.0" />
-            <Label layoutX="143.0" layoutY="170.0" prefHeight="25.0" prefWidth="76.0" text="Effective Price:" textAlignment="CENTER" />
+                <Label fx:id="regLabel" layoutX="233.0" layoutY="138.0" prefHeight="18.0" prefWidth="81.0" textFill="WHITE" />
+            <Label fx:id="effectivePriceLabel" layoutX="233.0" layoutY="175.0" prefHeight="17.0" prefWidth="101.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="128.0" layoutY="171.0" prefHeight="25.0" prefWidth="95.0" text="Effective Price:" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
             <Label fx:id="invalidPrice" layoutX="223.0" layoutY="239.0" prefHeight="17.0" prefWidth="155.0" textFill="#ee0202" />
             <Label fx:id="priceUpdated" layoutX="232.0" layoutY="268.0" prefHeight="25.0" prefWidth="137.0" textAlignment="CENTER" textFill="#34b900">
                <font>
