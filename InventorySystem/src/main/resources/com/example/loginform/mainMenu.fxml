@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginform.Menu">
    <center>
@@ -15,10 +16,22 @@
                   <Image url="@../../../images/windowsShopping.png" />
                </image>
             </ImageView>
-            <Button fx:id="Inventory" layoutX="219.0" layoutY="59.0" mnemonicParsing="false" onAction="#runInventory" prefHeight="30.0" prefWidth="163.0" text="Inventory" />
-            <Button fx:id="product" layoutX="219.0" layoutY="139.0" mnemonicParsing="false" onAction="#viewProductInfo" prefHeight="30.0" prefWidth="163.0" text="View Product Info" />
-            <Button fx:id="promotionalPricing" layoutX="219.0" layoutY="213.0" mnemonicParsing="false" onAction="#runPromo" prefHeight="30.0" prefWidth="163.0" text="Promotion Pricing" />
-            <Button fx:id="logout" layoutX="274.0" layoutY="308.0" mnemonicParsing="false" onAction="#userLogOut" text="Logout" />
+            <Button fx:id="Inventory" layoutX="219.0" layoutY="68.0" mnemonicParsing="false" onAction="#runInventory" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #4daed3;" text="Inventory" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="product" layoutX="219.0" layoutY="139.0" mnemonicParsing="false" onAction="#viewProductInfo" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #4daed3;" text="View Product Info" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="promotionalPricing" layoutX="219.0" layoutY="213.0" mnemonicParsing="false" onAction="#runPromo" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #4daed3;" text="Promotion Pricing" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="logout" layoutX="269.0" layoutY="306.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: #4daed3;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </center>

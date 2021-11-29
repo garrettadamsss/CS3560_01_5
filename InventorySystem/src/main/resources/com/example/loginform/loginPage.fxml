@@ -26,7 +26,7 @@
                <children>
                   <TextField fx:id="username" layoutX="14.0" layoutY="131.0" onAction="#onEnter" promptText="Username" />
                   <PasswordField fx:id="password" layoutX="14.0" layoutY="174.0" onAction="#onEnter1" promptText="Password" />
-                  <Button fx:id="button" layoutX="15.0" layoutY="220.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="25.0" prefWidth="147.0" text="Login" />
+                  <Button fx:id="button" layoutX="15.0" layoutY="220.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="25.0" prefWidth="147.0" text="Login" textFill="#5e5e5e" />
                </children>
             </AnchorPane>
          </children>

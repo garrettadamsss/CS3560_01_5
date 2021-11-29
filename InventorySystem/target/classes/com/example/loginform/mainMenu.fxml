@@ -15,10 +15,10 @@
                   <Image url="@../../../images/windowsShopping.png" />
                </image>
             </ImageView>
-            <Button fx:id="Inventory" layoutX="219.0" layoutY="59.0" mnemonicParsing="false" onAction="#runInventory" prefHeight="30.0" prefWidth="163.0" text="Inventory" />
-            <Button fx:id="product" layoutX="219.0" layoutY="139.0" mnemonicParsing="false" onAction="#viewProductInfo" prefHeight="30.0" prefWidth="163.0" text="View Product Info" />
-            <Button fx:id="promotionalPricing" layoutX="219.0" layoutY="213.0" mnemonicParsing="false" onAction="#runPromo" prefHeight="30.0" prefWidth="163.0" text="Promotion Pricing" />
-            <Button fx:id="logout" layoutX="274.0" layoutY="308.0" mnemonicParsing="false" onAction="#userLogOut" text="Logout" />
+            <Button fx:id="Inventory" layoutX="219.0" layoutY="68.0" mnemonicParsing="false" onAction="#runInventory" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #4daed3;" text="Inventory" textFill="WHITE" />
+            <Button fx:id="product" layoutX="219.0" layoutY="139.0" mnemonicParsing="false" onAction="#viewProductInfo" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #4daed3;" text="View Product Info" textFill="WHITE" />
+            <Button fx:id="promotionalPricing" layoutX="219.0" layoutY="213.0" mnemonicParsing="false" onAction="#runPromo" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #4daed3;" text="Promotion Pricing" textFill="WHITE" />
+            <Button fx:id="logout" layoutX="274.0" layoutY="308.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: #4daed3;" text="Logout" textFill="WHITE" />
          </children>
       </AnchorPane>
    </center>
