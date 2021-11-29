@@ -19,13 +19,17 @@ import java.sql.*;
 
 public class  Login {
     public static String sessionID = null;
-    
+
+    public static int positionID = 0;
+
     @FXML
     private Button button;
     @FXML
     private TextField username;
     @FXML
     private PasswordField password;
+    @FXML
+    private PasswordField employeeID;
 
     @FXML
     public void onEnter(ActionEvent ae) {
@@ -53,12 +57,17 @@ public class  Login {
 
         String employeeUsername = username.getText();
         String employeePassword = password.getText();
+        // String employeePositionID = employeeID.getText();
 
         try {
             PreparedStatement loginVerify = connectDB.prepareStatement("SELECT * FROM grocery_store_inventory_subsystem.employee WHERE username=?");
-            loginVerify.setString(1, employeeUsername);
-            ResultSet resultSet = loginVerify.executeQuery();
 
+            loginVerify.setString(1, employeeUsername);
+
+
+            loginVerify.setString(1, employeeUsername);
+
+            ResultSet resultSet = loginVerify.executeQuery();
 
             if (!resultSet.isBeforeFirst()) {
                 button.setText("User not found");
@@ -72,7 +81,17 @@ public class  Login {
                         int employee_id = resultSet.getInt("employee_id");
                         recordLoginSession(employee_id);
 
-                        m.changeScene("mainMenu.fxml");
+
+                        positionID = resultSet.getInt("position_id");
+                        //String retrievedPositionID = resultSet.getString("position_id");
+                        if (positionID == 11) {
+                            m.changeScene("mainMenu.fxml");
+                        } else if (positionID == 22){
+                            m.changeScene("mainEmployeeMenu.fxml");
+                        }
+
+                        //m.changeScene("mainMenu.fxml");
+
                     } else {
                         button.setText("Incorrect Password");
                         button.setTextFill(Color.RED);
